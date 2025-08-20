@@ -1,2 +1,42 @@
-node_modules
-/generated/prisma
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# production build
+/dist
+/build
+
+# optional npm cache directory
+.npm
+
+# debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# environment variables
+.env
+.env.*.local
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# IDE/editor settings
+.vscode/
+.idea/
+*.swp
+
+# test coverage
+/coverage
+
+# TypeScript build info
+*.tsbuildinfo
+
+# lock files (optional if you want only one package manager)
+/package-lock.json
+/yarn.lock
+/pnpm-lock.yaml
+
