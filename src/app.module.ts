@@ -9,18 +9,21 @@ import { AdminModule } from './admin/admin.module';
 import { SuperAdminModule } from './super-admin/super-admin.module';
 import { PrismaService } from './prisma/prisma.service';
 import { PrismaModule } from './prisma/prisma.module';
+import { RoutesModule } from './routes/routes.module';
 
 @Module({
-  imports: [AuthModule,
+  imports: [
     ConfigModule.forRoot({
-      isGlobal:true,
-      envFilePath:".env"
+      isGlobal: true,
+      envFilePath: '.env',
     }),
+    AuthModule,
     UsersModule,
     TrainerModule,
     AdminModule,
     SuperAdminModule,
-    PrismaModule
+    PrismaModule,
+    RoutesModule,
   ],
   controllers: [AppController],
   providers: [AppService, PrismaService],
