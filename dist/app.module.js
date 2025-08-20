@@ -10,14 +10,32 @@ exports.AppModule = void 0;
 const common_1 = require("@nestjs/common");
 const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
+const auth_module_1 = require("./auth/auth.module");
+const config_1 = require("@nestjs/config");
+const users_module_1 = require("./users/users.module");
+const trainer_module_1 = require("./trainer/trainer.module");
+const admin_module_1 = require("./admin/admin.module");
+const super_admin_module_1 = require("./super-admin/super-admin.module");
+const prisma_service_1 = require("./prisma/prisma.service");
+const prisma_module_1 = require("./prisma/prisma.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
 exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
-        imports: [],
+        imports: [auth_module_1.AuthModule,
+            config_1.ConfigModule.forRoot({
+                isGlobal: true,
+                envFilePath: ".env"
+            }),
+            users_module_1.UsersModule,
+            trainer_module_1.TrainerModule,
+            admin_module_1.AdminModule,
+            super_admin_module_1.SuperAdminModule,
+            prisma_module_1.PrismaModule
+        ],
         controllers: [app_controller_1.AppController],
-        providers: [app_service_1.AppService],
+        providers: [app_service_1.AppService, prisma_service_1.PrismaService],
     })
 ], AppModule);
 //# sourceMappingURL=app.module.js.map
